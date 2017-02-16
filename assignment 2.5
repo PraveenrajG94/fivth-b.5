@@ -1,0 +1,58 @@
+1. what is a cluster:
+
+             In a computer system, a cluster is a group of servers and other resources that act like a single system and
+ enable high availability and, in some cases, load balancing and parallel processing
+In personal computer storage technology, a cluster is the logical unit of file storage on a hard disk;
+it's managed by the computer's operating system. Any file stored on a hard disk takes up one or more clusters of storage.
+A file's clusters can be scattered among different locations on the hard disk. The clusters associated with a file are kept track
+of in the hard disk's file allocation table (FAT). When you read a file, the entire file is obtained for you and you aren't aware
+of the clusters it is stored in. In some products, a cluster is a group of terminals or workstations attached to a common control unit.
+ Merits-
+* Clustering servers is completely a scalable solution. You can add resources to the cluster afterwards.
+*If a server in the cluster needs any maintenance, you can do it by stopping it while handing the load over to other servers.
+*Among high availability options, clustering takes a special place since it is reliable and easy to configure. In case of a server 
+is having a problem providing the services furthermore, other servers in the cluster can take the load.
+ Demerits-
+*Cost is high. Since the cluster needs good hardware and a design, it will be costly comparing to a non-clustered server management design. Being not cost effective is a main disadvantage of this particular design.
+*Since clustering needs more servers and hardware to establish one, monitoring and maintenance is hard. Thus increase the infrastructure.
+
+what is a hadoop cluster:
+            A Hadoop cluster is a special type of computational cluster designed specifically for storing and analyzing huge amounts of 
+unstructured data in a distributed computing environment. Hadoop clusters are known for boosting the speed of data analysis applications.
+They also are highly scalable: If a cluster's processing power is overwhelmed by growing volumes of data,
+additional cluster nodes can be added to increase throughput. Hadoop clusters also are highly resistant to failure because each piece
+of data is copied onto other cluster nodes, which ensures that the data is not lost if one node fails.
+Over the last few years, big data analytics has become all the rage. Even so, many organizations are discovering...
+That their existing mining and analysis techniques simply are not up to the task of handling big data. One possible solution to this
+problem is to build Hadoop clusters, but they are not suitable for every situation. Let's examine some of the pros and cons of using 
+Hadoop clusters.
+A Hadoop cluster is a special type of cluster that is specifically designed for storing and analyzing huge amounts of unstructured data.
+A Hadoop cluster is essentially a computational cluster that distributes the data analysis workload across multiple cluster nodes that work
+to process the data in parallel.
+ Merits-
+  *Distribute data and computation.The computation local to data prevents the network overload.
+  *Linear scaling in the ideal case.It used to design for cheap, commodity hardware
+  *Simple programming model.The end-user programmer only writes map-reduce tasks.
+  *Flat scalability
+2.What is meant by a Rack and explain the rack arrangement in a hadoop cluster
+
+A Node is simply a computer. This is typically non-enterprise, commodity hardware for nodes that contain data. Storage of Nodes is
+called as rack. A rack is a collection of 30 or 40 nodes that are physically stored close together and are all connected to the same 
+network switch. Network bandwidth between any two nodes in rack is greater than bandwidth between two nodes on different racks.
+A Hadoop Cluster is a collection of racks.
+ components:
+The distributed filesystem component, the main example of which is the Hadoop Distributed File System, though other file systems, such as IBM GPFS-FPO, are supported. The MapReduce component, which is a framework for performing calculations on the data in the distributed file system. Pre-Hadoop 2.2 MapReduce is referred to as MapReduce V1 and has its own built-in resource manager and schedule.
+This article covers the Hadoop Distributed File System and MapReduce. Let's now examine the Hadoop distributed file system - HDFS HDFS
+runs on top of the existing file systems on each node in a Hadoop cluster. It is not POSIX compliant. It is designed to tolerate high
+component failure rate through replication of the data.
+ Arrangements;
+ 
+ The NameNode acts as the address book for Hadoop Distributed File System (HDFS) because it knows not only which blocks make up 
+ individual files but also where each of these blocks and their replicas are stored. When a user stores a file in HDFS, the file is 
+ divided into data blocks, and three copies of these data blocks are stored in slave nodes throughout the Hadoop cluster.
+ That’s a lot of data blocks to keep track of. As you might expect, knowing where the bodies are buried makes the NameNode a critically 
+ important component in a Hadoop cluster. If the NameNode is unavailable, applications cannot access any data stored in HDFS you can see 
+ the NameNode daemon running on a master node server. All mapping information dealing with the data blocks and their corresponding files is stored in a file named.
+ HDFS is a journaling file system, which means that any data changes are logged in an edit journal that tracks events since the last 
+ checkpoint — the last time when the edit log was merged with. In HDFS, the edit journal is maintained in a file named that’s stored on
+ the NameNode.
